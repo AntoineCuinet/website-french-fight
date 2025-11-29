@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - French Fight{% endblock %}
+
+{% block body %}
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="reveal-item" data-reveal-target="item"><span class="text-tricolor">French</span> <span class="text-tricolor-h1">Fight</span></h1>
+            <p class="lead reveal-item" data-reveal-target="item">L'élite du combat MMA en France.</p>
+            <div class="btn-container reveal-item" data-reveal-target="item">
+                <a href="{{ path('app_fights') }}" class="btn-violent">Voir les Combats</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="text-center reveal-item" data-reveal-target="item">
+            <h2 class="section-title">Derniers Combats</h2>
+        </div>
+
+        <div class="row mt-4">
+            {% for fight in latest_fights %}
+                <div class="col-md-4 mb-4 reveal-item" data-reveal-target="item">
+                    <a href="{{ path('app_fight_show', {id: fight.id}) }}" class="card fight-card h-100 text-decoration-none">
+                        {% if fight.imageUrl %}
+                            <img src="{{ fight.imageUrl }}" class="card-img-top" alt="{{ fight.fighterA }} vs {{ fight.fighterB }}">
+                        {% else %}
+                            <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center">
+                                <span class="fs-1">🥊</span>
+                            </div>
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">{{ fight.fighterA }} <span class="text-muted">vs</span> {{ fight.fighterB }}</h5>
+                            <p class="card-text text-muted">{{ fight.date|date('d M Y') }} • {{ fight.type }}</p>
+                            {% if fight.result %}
+                                <p class="fw-bold text-success">Résultat: {{ fight.result }}</p>
+                            {% endif %}
+                        </div>
+                    </a>
+                </div>
+            {% else %}
+                <div class="col-12 text-center reveal-item" data-reveal-target="item">
+                    <p class="text-muted">Aucun combat récent à afficher.</p>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-4 reveal-item" data-reveal-target="item">
+             <a href="{{ path('app_fights') }}" class="btn-outline-violent">Tous les combats</a>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="text-center reveal-item" data-reveal-target="item">
+            <h2 class="section-title">Actualités</h2>
+        </div>
+
+        <div class="row mt-4">
+            {% for blog in latest_blogs %}
+                <div class="col-md-4 mb-4 reveal-item" data-reveal-target="item">
+                    <a href="{{ path('app_blog_show', {'id': blog.id}) }}" class="card fight-card h-100 text-decoration-none">
+                        {% if blog.imageUrl %}
+                            <img src="{{ blog.imageUrl }}" class="card-img-top" alt="{{ blog.title }}">
+                        {% else %}
+                            <div class="card-img-top bg-dark d-flex align-items-center justify-content-center">
+                                <span class="fs-1">📰</span>
+                            </div>
+                        {% endif %}
+                        <div class="card-body">
+                            <div class="badge bg-primary mb-2">{{ blog.category }}</div>
+                            <h5 class="card-title text-truncate">{{ blog.title }}</h5>
+                            <p class="card-text text-muted small">{{ blog.publishedAt|date('d M Y') }}</p>
+                            <p class="card-text">{{ blog.content|striptags|slice(0, 100) }}...</p>
+                        </div>
+                    </a>
+                </div>
+            {% else %}
+                <div class="col-12 text-center reveal-item" data-reveal-target="item">
+                    <p class="text-muted">Aucune actualité récente.</p>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-4 reveal-item" data-reveal-target="item">
+            <a href="{{ path('app_blog') }}" class="btn-outline-violent">Toutes les news</a>
+        </div>
+    </section>
+{% endblock %}

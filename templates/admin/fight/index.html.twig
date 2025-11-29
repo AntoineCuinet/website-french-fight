@@ -1,0 +1,54 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block title %}Gérer les Combats{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4 reveal-item" data-reveal-target="item">
+        <h1 class="text-white fw-bold">Combats</h1>
+        <a href="{{ path('app_fight_new') }}" class="btn btn-primary"><i class="bi bi-plus-lg"></i> Nouveau Combat</a>
+    </div>
+
+    <div class="card card-custom reveal-item" data-reveal-target="item">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-dark table-hover mb-0 align-middle">
+                    <thead class="bg-darker text-uppercase text-muted">
+                        <tr>
+                            <th class="ps-4">ID</th>
+                            <th>Combattants</th>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Résultat</th>
+                            <th class="text-end pe-4">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for fight in fights %}
+                        <tr>
+                            <td class="ps-4">{{ fight.id }}</td>
+                            <td>
+                                <span class="fw-bold text-primary">{{ fight.fighterA }}</span>
+                                <span class="text-muted mx-1">vs</span>
+                                <span class="fw-bold text-danger">{{ fight.fighterB }}</span>
+                            </td>
+                            <td>{{ fight.date ? fight.date|date('d/m/Y H:i') : '' }}</td>
+                            <td><span class="badge bg-secondary">{{ fight.type }}</span></td>
+                            <td>{{ fight.result ? fight.result|slice(0, 20) : '-' }}</td>
+                            <td class="text-end pe-4">
+                                <a href="{{ path('app_fight_show', {'id': fight.id}) }}" class="btn btn-sm btn-info me-1" title="Voir"><i class="bi bi-eye"></i> Voir</a>
+                                <a href="{{ path('app_fight_edit', {'id': fight.id}) }}" class="btn btn-sm btn-warning" title="Modifier"><i class="bi bi-pencil"></i> Modifier</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="6" class="text-center py-4 text-muted">Aucun combat trouvé</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

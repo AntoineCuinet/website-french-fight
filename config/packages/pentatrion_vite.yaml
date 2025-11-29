@@ -1,0 +1,6 @@
+pentatrion_vite:
+    # public directory relative to the project root
+    public_directory: public
+
+    # directory where the assets are built (relative to public_dir)
+    build_directory: build

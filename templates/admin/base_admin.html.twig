@@ -1,0 +1,60 @@
+<!--
+    _____ _  _ ___ __  __ ____________
+   / ____/ / / /  _/ | / / ____/_  __/
+  / /   / / / // //  |/ / __/   / /   
+ / /___/ /_/ // // /|  / /___  / /    
+ \____/\____/___/_/ |_/_____/ /_/      
+ _____ _  _ ___ __  __ ____________
+
+ A 2025 CUINET realization, see the website https://acuinet.fr 
+-->
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>{% block title %}Admin - French Fight{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>🛡️</text></svg>">
+        
+        {% block stylesheets %}
+            {{ vite_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ vite_entry_script_tags('app') }}
+        {% endblock %}
+    </head>
+    <body data-controller="reveal">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary fixed-top reveal-item" data-reveal-target="item">
+            <div class="container">
+                <a class="navbar-brand fw-bold text-uppercase" href="{{ path('admin_dashboard') }}">
+                    <span class="text-danger">ADMIN</span> PANEL
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="adminNavbar">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_home') }}">Retour au Site</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('admin_dashboard') }}">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_fight_index') }}">Combats</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_blog_post_index') }}">Blog</a></li>
+                        <li class="nav-item ms-lg-3"><a class="btn btn-sm btn-outline-danger" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <main class="mt-5 pt-5">
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer class="footer mt-auto py-4 text-center border-top border-secondary bg-darker">
+            <div class="container">
+                <span class="text-muted small">Administration French Fight</span>
+            </div>
+        </footer>
+    </body>
+</html>

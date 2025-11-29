@@ -1,0 +1,80 @@
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('../../images/mma.jpg') no-repeat center center;
+        background-size: cover;
+        filter: brightness(0.35) contrast(1.2) saturate(1.1); // More aggressive filter
+        z-index: -1;
+    }
+
+    // Scanline effect
+    &::after {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+        z-index: 0;
+        background-size: 100% 2px, 3px 100%;
+        pointer-events: none;
+    }
+
+    h1 {
+        font-size: 5rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 8px;
+        position: relative;
+        z-index: 1;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+        opacity: 0.9;
+        position: relative;
+        z-index: 1;
+        font-weight: 300;
+        letter-spacing: 1px;
+        color: $light;
+    }
+    
+    .btn-container {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.text-tricolor {
+    // Sharper gradient
+    background: linear-gradient(90deg, #0055A4 35%, #FFFFFF 45%, #FFFFFF 55%, #EF4135 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    display: inline-block;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+}
+
+.text-tricolor-h1 {
+    // Glitchy text shadow
+    text-shadow: 2px 2px 0px $secondary, -2px -2px 0px $primary;
+}

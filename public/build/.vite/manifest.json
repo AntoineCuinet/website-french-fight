@@ -1,0 +1,28 @@
+{
+  "assets/app.js": {
+    "file": "assets/app-BTzz5nxY.js",
+    "name": "app",
+    "src": "assets/app.js",
+    "isEntry": true,
+    "css": [
+      "assets/app-DaaSyY2M.css"
+    ],
+    "assets": [
+      "assets/bootstrap-icons-mSm7cUeB.woff2",
+      "assets/bootstrap-icons-BeopsB42.woff",
+      "assets/mma-Po3LVVcn.jpg"
+    ]
+  },
+  "assets/images/mma.jpg": {
+    "file": "assets/mma-Po3LVVcn.jpg",
+    "src": "assets/images/mma.jpg"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff": {
+    "file": "assets/bootstrap-icons-BeopsB42.woff",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff"
+  },
+  "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2": {
+    "file": "assets/bootstrap-icons-mSm7cUeB.woff2",
+    "src": "node_modules/bootstrap-icons/font/fonts/bootstrap-icons.woff2"
+  }
+}

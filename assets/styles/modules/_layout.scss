@@ -1,0 +1,14 @@
+.navbar {
+    position: sticky;
+    height: 70px;
+    top: 0;
+    z-index: 1030;
+    background: rgba($dark, 0.9) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba($grey, 0.5);
+}
+
+footer {
+    background: darken($dark, 3%);
+    border-top: 1px solid rgba($light, 0.05);
+}

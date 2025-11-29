@@ -1,0 +1,16 @@
+// 1. Variables & Configuration
+@import "modules/variables";
+
+// 2. Bootstrap (depends on variables)
+@import "bootstrap/scss/bootstrap";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+// 3. Base Styles
+@import "modules/base";
+
+// 4. Layout Modules
+@import "modules/layout";
+@import "modules/hero";
+
+// 5. Components
+@import "modules/components";

@@ -1,0 +1,48 @@
+{% extends 'admin/base_admin.html.twig' %}
+
+{% block title %}Articles de Blog{% endblock %}
+
+{% block body %}
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4 reveal-item" data-reveal-target="item">
+        <h1 class="text-white fw-bold">Blog</h1>
+        <a href="{{ path('app_blog_post_new') }}" class="btn btn-danger"><i class="bi bi-plus-lg"></i> Nouvel Article</a>
+    </div>
+
+    <div class="card card-custom reveal-item" data-reveal-target="item">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table table-dark table-hover mb-0 align-middle">
+                    <thead class="bg-darker text-uppercase text-muted">
+                        <tr>
+                            <th class="ps-4">ID</th>
+                            <th>Titre</th>
+                            <th>Date</th>
+                            <th>Catégorie</th>
+                            <th class="text-end pe-4">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for blog_post in blog_posts %}
+                        <tr>
+                            <td class="ps-4">{{ blog_post.id }}</td>
+                            <td>{{ blog_post.title }}</td>
+                            <td>{{ blog_post.publishedAt ? blog_post.publishedAt|date('d/m/Y H:i') : '' }}</td>
+                            <td><span class="badge bg-secondary">{{ blog_post.category }}</span></td>
+                            <td class="text-end pe-4">
+                                <a href="{{ path('app_blog_post_show', {'id': blog_post.id}) }}" class="btn btn-sm btn-info me-1" title="Voir"><i class="bi bi-eye"></i> Voir</a>
+                                <a href="{{ path('app_blog_post_edit', {'id': blog_post.id}) }}" class="btn btn-sm btn-warning" title="Modifier"><i class="bi bi-pencil"></i> Modifier</a>
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center py-4 text-muted">Aucun article trouvé</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

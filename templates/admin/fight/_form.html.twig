@@ -1,0 +1,80 @@
+{{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form_row(form.fighterA, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form_row(form.fighterB, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            {{ form_row(form.fighterAAge, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+        </div>
+        <div class="col-md-4 mb-3">
+            {{ form_row(form.fighterAHeight, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+        </div>
+        <div class="col-md-4 mb-3">
+            {{ form_row(form.fighterAWeight, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 mb-3">
+            {{ form_row(form.fighterBAge, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+        </div>
+        <div class="col-md-4 mb-3">
+            {{ form_row(form.fighterBHeight, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+        </div>
+        <div class="col-md-4 mb-3">
+            {{ form_row(form.fighterBWeight, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-3">
+            {{ form_row(form.date, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+        </div>
+        <div class="col-md-6 mb-3">
+            {{ form_row(form.type, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+        </div>
+    </div>
+
+    <div class="mb-3">
+        {{ form_row(form.eventName, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+    </div>
+    <div class="mb-3">
+        {{ form_row(form.weightClass, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+    </div>
+    <div class="mb-3">
+        {{ form_row(form.rounds, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+    </div>
+    <div class="mb-3">
+        {{ form_row(form.isTitleFight) }}
+    </div>
+    <div class="mb-3">
+        {{ form_row(form.status, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_row(form.location, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+    </div>
+    
+    <div class="mb-3">
+        {{ form_row(form.broadcaster, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+    </div>
+
+    <div class="mb-3">
+        {{ form_row(form.result, {'attr': {'class': 'form-control bg-dark text-white border-secondary', 'rows': 3}}) }}
+    </div>
+
+    <div class="mb-3">
+        {% if fight.imageUrl %}
+            <img src="{{ asset(fight.imageUrl) }}" alt="Current Image" style="max-width: 200px; height: auto; display: block; margin-bottom: 10px;">
+        {% endif %}
+        {{ form_row(form.imageFile, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
+    </div>
+
+    <button class="btn btn-success btn-lg w-100 mt-3">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

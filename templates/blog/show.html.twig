@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }} - Blog{% endblock %}
+
+{% block body %}
+    <div class="container py-5 mt-5">
+        <article class="blog-post">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{ path('app_blog') }}">Blog</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ post.title }}</li>
+                </ol>
+            </nav>
+
+            {% if post.imageUrl %}
+                <img src="{{ post.imageUrl }}" class="img-fluid rounded mb-4 w-100" style="max-height: 400px; object-fit: cover;" alt="{{ post.title }}">
+            {% endif %}
+
+            <h1 class="display-4 mb-3">{{ post.title }}</h1>
+            <p class="text-muted mb-4">Par Admin | {{ post.publishedAt|date('d F Y') }} | <span class="badge bg-primary">{{ post.category }}</span></p>
+            
+            <div class="blog-content fs-5 text-light">
+                {{ post.content|nl2br }}
+            </div>
+        </article>
+    </div>
+    <div class="text-center mt-4 reveal-item" data-reveal-target="item">
+        <a href="{{ path('app_blog') }}" class="btn-outline-violent">Retour aux news</a>
+    </div>
+{% endblock %}
