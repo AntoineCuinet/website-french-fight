@@ -1,5 +1,6 @@
 import './styles/app.scss';
 import { Application } from '@hotwired/stimulus';
+import 'bootstrap';
 
 const app = Application.start();
 

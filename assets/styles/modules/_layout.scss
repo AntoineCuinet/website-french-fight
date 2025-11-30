@@ -1,6 +1,6 @@
 .navbar {
     position: sticky;
-    height: 70px;
+    min-height: 70px; // Changed from height to min-height to allow expansion
     top: 0;
     z-index: 1030;
     background: rgba($dark, 0.9) !important;

@@ -14,10 +14,18 @@ use Symfony\Component\HttpFoundation\File\UploadedFile; // Add for file uploads
 use Symfony\Component\String\Slugger\SluggerInterface; // Add for file uploads
 use Symfony\Component\Filesystem\Filesystem; // Add for file operations
 use Symfony\Component\HttpFoundation\File\Exception\FileException; // Add for file exception handling
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route('/admin/blog')]
 class BlogPostController extends AbstractController
 {
+    private TranslatorInterface $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     #[Route('/', name: 'app_blog_post_index', methods: ['GET'])]
     public function index(BlogPostRepository $blogPostRepository): Response
     {
@@ -48,7 +56,7 @@ class BlogPostController extends AbstractController
                         $newFilename
                     );
                 } catch (FileException $e) {
-                    $this->addFlash('error', 'Erreur lors de l\'upload de l\'image: '.$e->getMessage());
+                    $this->addFlash('error', $this->translator->trans('admin.flash.upload_error', ['%error%' => $e->getMessage()], 'admin'));
                     return $this->render('admin/blog_post/new.html.twig', [
                         'blog_post' => $blogPost,
                         'form' => $form,
@@ -107,7 +115,7 @@ class BlogPostController extends AbstractController
                         $newFilename
                     );
                 } catch (FileException $e) {
-                    $this->addFlash('error', 'Erreur lors de l\'upload de l\'image: '.$e->getMessage());
+                    $this->addFlash('error', $this->translator->trans('admin.flash.upload_error', ['%error%' => $e->getMessage()], 'admin'));
                     return $this->render('admin/blog_post/edit.html.twig', [
                         'blog_post' => $blogPost,
                         'form' => $form,

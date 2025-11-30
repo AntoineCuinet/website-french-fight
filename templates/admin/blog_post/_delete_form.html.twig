@@ -1,4 +1,4 @@
-<form method="post" action="{{ path('app_blog_post_delete', {'id': blog_post.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');" class="d-inline">
+<form method="post" action="{{ path('app_blog_post_delete', {'id': blog_post.id}) }}" onsubmit="return confirm('{{ 'admin.blog.delete.confirm'|trans({}, 'admin') }}');" class="d-inline">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ blog_post.id) }}">
-    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> Supprimer</button>
+    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> {{ 'admin.blog.delete.btn'|trans({}, 'admin') }}</button>
 </form>

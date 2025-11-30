@@ -1,0 +1,87 @@
+app:
+  meta:
+    title: "French Fight"
+    description: "L'élite du combat MMA en France."
+  
+  brand:
+    first: "FRENCH"
+    second: "FIGHT"
+
+  nav:
+    home: "Accueil"
+    fights: "Combats"
+    blog: "Blog"
+    admin: "Admin"
+    
+  footer:
+    copyright: "French Fight. Tous droits réservés."
+    rights: "Tous droits réservés."
+
+home:
+  hero:
+    title_part1: "French"
+    title_part2: "Fight"
+    subtitle: "L'élite du combat MMA en France."
+    cta: "Voir les Combats"
+  latest_fights:
+    title: "Derniers Combats"
+    empty: "Aucun combat récent à afficher."
+    view_all: "Tous les combats"
+    vs: "vs"
+    result: "Résultat :"
+    card_alt: "vs" # For image alt attributes
+    placeholder_emoji: "🥊"
+  news:
+    title: "Actualités"
+    empty: "Aucune actualité récente."
+    view_all: "Toutes les news"
+    card_alt: "Image de l'article" # Fallback
+    placeholder_emoji: "📰"
+
+fights:
+  upcoming:
+    title: "Combats à Venir"
+    empty: "Aucun combat à venir pour le moment."
+    placeholder_emoji: "📅"
+  past:
+    title: "Combats Passés"
+    empty: "Historique vide."
+  card:
+    details: "Voir détails"
+    winner: "Vainqueur :"
+    vs: "VS"
+  show:
+    placeholder_emoji: "🥊"
+    title_fight: "Combat pour le titre"
+    na: "N/A"
+    age: "ans"
+    title_age: "Age"
+    title_height: "Taille"
+    title_weight: "Poids"
+    title_place: "Lieu"
+    title_rounds: "Rounds"
+    title_broadcast: "Diffusion"
+    place: "Lieu à déterminer"
+    rounds: "Rounds"
+    broadcast: "Inconnu"
+    fight_result: "Résultat du combat"
+    fight_return: "Retour aux combats"
+
+blog:
+  section_title: "Blog & Actualités"
+  subtitle: "Astuces, entraînements et analyses."
+  empty: "Aucun article publié."
+  published_on: "Publié le"
+  read_more: "Lire la suite" # Even if not explicitly used, good to have
+  back_to_blog: "Retour au Blog"
+
+security:
+  login:
+    title: "Connexion Admin"
+    page_title: "Connexion - French Fight"
+    email: "Email"
+    password: "Mot de passe"
+    submit: "Se connecter"
+    logged_in_as: "Vous êtes connecté en tant que"
+    logout: "Déconnexion"
+    error: "Erreur"

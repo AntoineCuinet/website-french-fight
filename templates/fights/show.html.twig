@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ fight.fighterA }} vs {{ fight.fighterB }} - French Fight{% endblock %}
+{% block title %}{{ 'app.meta.title'|trans({}, 'app') }} - {{ fight.fighterA }} {{ 'fights.card.vs'|trans({}, 'app') }} {{ fight.fighterB }}{% endblock %}
 
 {% block body %}
 <div class="container py-5 mt-5">
@@ -9,10 +9,10 @@
             <div class="card card-custom mb-4 reveal-item is-visible">
                 <div class="position-relative">
                     {% if fight.imageUrl %}
-                        <img src="{{ fight.imageUrl }}" class="card-img-top" style="height: 400px; object-fit: cover; object-position: top;" alt="{{ fight.fighterA }} vs {{ fight.fighterB }}">
+                        <img src="{{ fight.imageUrl }}" class="card-img-top" style="height: 400px; object-fit: cover; object-position: top;" alt="{{ fight.fighterA }} {{ 'fights.card.vs'|trans({}, 'app') }} {{ fight.fighterB }}">
                     {% else %}
                         <div class="card-img-top bg-dark d-flex align-items-center justify-content-center" style="height: 400px;">
-                            <span class="display-1">🥊</span>
+                            <span class="display-1">{{ 'fights.show.placeholder_emoji'|trans({}, 'app') }}</span>
                         </div>
                     {% endif %}
                     <div class="position-absolute bottom-0 start-0 w-100 p-4 bg-gradient-dark text-white" style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
@@ -22,9 +22,9 @@
                                     <span class="badge bg-danger mb-2">{{ fight.eventName }}</span>
                                 {% endif %}
                                 {% if fight.isTitleFight %}
-                                    <span class="badge bg-warning text-dark mb-2"><i class="bi bi-trophy-fill"></i> Combat pour le titre</span>
+                                    <span class="badge bg-warning text-dark mb-2"><i class="bi bi-trophy-fill"></i> {{ 'fights.show.title_fight'|trans({}, 'app') }}</span>
                                 {% endif %}
-                                <h1 class="display-4 fw-bold text-uppercase mb-0 text-shadow">{{ fight.fighterA }} <span class="text-primary">VS</span> {{ fight.fighterB }}</h1>
+                                <h1 class="display-4 fw-bold text-uppercase mb-0 text-shadow">{{ fight.fighterA }} <span class="text-primary">{{ 'fights.card.vs'|trans({}, 'app') }}</span> {{ fight.fighterB }}</h1>
                                 <p class="lead mb-0 text-light">
                                     {{ fight.type }} 
                                     {% if fight.weightClass %} • {{ fight.weightClass }}{% endif %}
@@ -45,23 +45,23 @@
                             <h3 class="text-primary fw-bold text-uppercase mb-4">{{ fight.fighterA }}</h3>
                             <ul class="list-group list-group-flush bg-transparent">
                                 <li class="list-group-item bg-transparent text-light border-secondary d-flex justify-content-between">
-                                    <span>Age</span>
-                                    <span class="fw-bold">{{ fight.fighterAAge ? fight.fighterAAge ~ ' ans' : 'N/A' }}</span>
+                                    <span>{{ 'fights.show.title_age'|trans({}, 'app') }}</span>
+                                    <span class="fw-bold">{{ fight.fighterAAge ? fight.fighterAAge ~ ' ' ~ 'fights.show.age'|trans({}, 'app') : 'fights.show.na'|trans({}, 'app') }}</span>
                                 </li>
                                 <li class="list-group-item bg-transparent text-light border-secondary d-flex justify-content-between">
-                                    <span>Taille</span>
-                                    <span class="fw-bold">{{ fight.fighterAHeight ? fight.fighterAHeight : 'N/A' }}</span>
+                                    <span>{{ 'fights.show.title_height'|trans({}, 'app') }}</span>
+                                    <span class="fw-bold">{{ fight.fighterAHeight ? fight.fighterAHeight : 'fights.show.na'|trans({}, 'app') }}</span>
                                 </li>
                                 <li class="list-group-item bg-transparent text-light border-secondary d-flex justify-content-between">
-                                    <span>Poids</span>
-                                    <span class="fw-bold">{{ fight.fighterAWeight ? fight.fighterAWeight : 'N/A' }}</span>
+                                    <span>{{ 'fights.show.title_weight'|trans({}, 'app') }}</span>
+                                    <span class="fw-bold">{{ fight.fighterAWeight ? fight.fighterAWeight : 'fights.show.na'|trans({}, 'app') }}</span>
                                 </li>
                             </ul>
                         </div>
 
                         <!-- VS Badge -->
                         <div class="col-md-2 d-flex align-items-center justify-content-center my-4 my-md-0">
-                            <div class="display-4 fw-bold text-tricolor">VS</div>
+                            <div class="display-4 fw-bold text-tricolor">{{ 'fights.card.vs'|trans({}, 'app') }}</div>
                         </div>
 
                         <!-- Fighter B Stats -->
@@ -69,16 +69,16 @@
                             <h3 class="text-danger fw-bold text-uppercase mb-4">{{ fight.fighterB }}</h3>
                             <ul class="list-group list-group-flush bg-transparent">
                                 <li class="list-group-item bg-transparent text-light border-secondary d-flex justify-content-between">
-                                    <span>Age</span>
-                                    <span class="fw-bold">{{ fight.fighterBAge ? fight.fighterBAge ~ ' ans' : 'N/A' }}</span>
+                                    <span>{{ 'fights.show.title_age'|trans({}, 'app') }}</span>
+                                    <span class="fw-bold">{{ fight.fighterBAge ? fight.fighterBAge ~ ' ' ~ 'fights.show.age'|trans({}, 'app') : 'fights.show.na'|trans({}, 'app') }}</span>
                                 </li>
                                 <li class="list-group-item bg-transparent text-light border-secondary d-flex justify-content-between">
-                                    <span>Taille</span>
-                                    <span class="fw-bold">{{ fight.fighterBHeight ? fight.fighterBHeight : 'N/A' }}</span>
+                                    <span>{{ 'fights.show.title_height'|trans({}, 'app') }}</span>
+                                    <span class="fw-bold">{{ fight.fighterBHeight ? fight.fighterBHeight : 'fights.show.na'|trans({}, 'app') }}</span>
                                 </li>
                                 <li class="list-group-item bg-transparent text-light border-secondary d-flex justify-content-between">
-                                    <span>Poids</span>
-                                    <span class="fw-bold">{{ fight.fighterBWeight ? fight.fighterBWeight : 'N/A' }}</span>
+                                    <span>{{ 'fights.show.title_weight'|trans({}, 'app') }}</span>
+                                    <span class="fw-bold">{{ fight.fighterBWeight ? fight.fighterBWeight : 'fights.show.na'|trans({}, 'app') }}</span>
                                 </li>
                             </ul>
                         </div>
@@ -88,28 +88,28 @@
 
                     <div class="row">
                         <div class="col-md-4 mb-4 mb-md-0 text-center">
-                            <h4 class="text-uppercase fw-bold text-white mb-3"><i class="bi bi-geo-alt-fill text-primary me-2"></i>Lieu</h4>
-                            <p class="fs-5 text-light">{{ fight.location ? fight.location : 'Lieu à déterminer' }}</p>
+                            <h4 class="text-uppercase fw-bold text-white mb-3"><i class="bi bi-geo-alt-fill text-primary me-2"></i>{{ 'fights.show.title_place'|trans({}, 'app') }}</h4>
+                            <p class="fs-5 text-light">{{ fight.location ? fight.location : 'fights.show.place'|trans({}, 'app') }}</p>
                         </div>
                         <div class="col-md-4 mb-4 mb-md-0 text-center">
-                            <h4 class="text-uppercase fw-bold text-white mb-3"><i class="bi bi-clock-fill text-warning me-2"></i>Rounds</h4>
-                            <p class="fs-5 text-light">{{ fight.rounds ? fight.rounds ~ ' Rounds' : 'N/A' }}</p>
+                            <h4 class="text-uppercase fw-bold text-white mb-3"><i class="bi bi-clock-fill text-warning me-2"></i>{{ 'fights.show.title_rounds'|trans({}, 'app') }}</h4>
+                            <p class="fs-5 text-light">{{ fight.rounds ? fight.rounds ~ ' ' ~ 'fights.show.rounds'|trans({}, 'app') : 'fights.show.na'|trans({}, 'app') }}</p>
                         </div>
                         <div class="col-md-4 text-center">
-                            <h4 class="text-uppercase fw-bold text-white mb-3"><i class="bi bi-tv-fill text-danger me-2"></i>Diffusion</h4>
-                            <p class="fs-5 text-light">{{ fight.broadcaster ? fight.broadcaster : 'Non diffusé / Inconnu' }}</p>
+                            <h4 class="text-uppercase fw-bold text-white mb-3"><i class="bi bi-tv-fill text-danger me-2"></i>{{ 'fights.show.title_broadcast'|trans({}, 'app') }}</h4>
+                            <p class="fs-5 text-light">{{ fight.broadcaster ? fight.broadcaster : 'fights.show.broadcast'|trans({}, 'app') }}</p>
                         </div>
                     </div>
 
                     {% if fight.result %}
                         <div class="alert alert-dark border-success mt-5 text-center">
-                            <h4 class="alert-heading text-success fw-bold text-uppercase mb-2">Résultat du combat</h4>
+                            <h4 class="alert-heading text-success fw-bold text-uppercase mb-2">{{ 'fights.show.fight_result'|trans({}, 'app') }}</h4>
                             <p class="fs-4 mb-0 text-white">{{ fight.result }}</p>
                         </div>
                     {% endif %}
                 </div>
                 <div class="card-footer bg-transparent border-top border-secondary p-4 text-center">
-                    <a href="{{ path('app_fights') }}" class="btn-outline-violent">Retour aux combats</a>
+                    <a href="{{ path('app_fights') }}" class="btn-outline-violent">{{ 'fights.show.fight_return'|trans({}, 'app') }}</a>
                 </div>
             </div>
         </div>

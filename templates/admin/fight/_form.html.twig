@@ -71,10 +71,10 @@
 
     <div class="mb-3">
         {% if fight.imageUrl %}
-            <img src="{{ asset(fight.imageUrl) }}" alt="Current Image" style="max-width: 200px; height: auto; display: block; margin-bottom: 10px;">
+            <img src="{{ asset(fight.imageUrl) }}" alt="{{ 'admin.fight.form.current_image'|trans({}, 'admin') }}" style="max-width: 200px; height: auto; display: block; margin-bottom: 10px;">
         {% endif %}
         {{ form_row(form.imageFile, {'attr': {'class': 'form-control bg-dark text-white border-secondary'}}) }}
     </div>
 
-    <button class="btn btn-success btn-lg w-100 mt-3">{{ button_label|default('Enregistrer') }}</button>
+    <button class="btn btn-success btn-lg w-100 mt-3">{{ button_label|default('admin.fight.form.save'|trans({}, 'admin')) }}</button>
 {{ form_end(form) }}

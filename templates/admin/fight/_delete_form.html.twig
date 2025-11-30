@@ -1,4 +1,4 @@
-<form method="post" action="{{ path('app_fight_delete', {'id': fight.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer ce combat ?');" class="d-inline">
+<form method="post" action="{{ path('app_fight_delete', {'id': fight.id}) }}" onsubmit="return confirm('{{ 'admin.fight.delete.confirm'|trans({}, 'admin') }}');" class="d-inline">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ fight.id) }}">
-    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> Supprimer</button>
+    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i> {{ 'admin.fight.delete.btn'|trans({}, 'admin') }}</button>
 </form>

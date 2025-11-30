@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>{% block title %}Admin - French Fight{% endblock %}</title>
+        <title>{% block title %}{{ 'app.meta.title'|trans({}, 'app') }} - {{ 'admin.meta.title'|trans({}, 'admin') }}{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>🛡️</text></svg>">
         
         {% block stylesheets %}
@@ -37,11 +37,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="adminNavbar">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="{{ path('app_home') }}">Retour au Site</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ path('admin_dashboard') }}">Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ path('app_fight_index') }}">Combats</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ path('app_blog_post_index') }}">Blog</a></li>
-                        <li class="nav-item ms-lg-3"><a class="btn btn-sm btn-outline-danger" href="{{ path('app_logout') }}">Déconnexion</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_home') }}">{{ 'admin.nav.back_to_site'|trans({}, 'admin') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('admin_dashboard') }}">{{ 'admin.nav.dashboard'|trans({}, 'admin') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_fight_index') }}">{{ 'admin.nav.fights'|trans({}, 'admin') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_blog_post_index') }}">{{ 'admin.nav.blog'|trans({}, 'admin') }}</a></li>
+                        <li class="nav-item ms-lg-3"><a class="btn btn-sm btn-outline-danger" href="{{ path('app_logout') }}">{{ 'admin.nav.logout'|trans({}, 'admin') }}</a></li>
                     </ul>
                 </div>
             </div>
@@ -53,7 +53,7 @@
 
         <footer class="footer mt-auto py-4 text-center border-top border-secondary bg-darker">
             <div class="container">
-                <span class="text-muted small">Administration French Fight</span>
+                <span class="text-muted small">{{ 'admin.footer.text'|trans({}, 'admin') }}</span>
             </div>
         </footer>
     </body>

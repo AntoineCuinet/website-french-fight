@@ -1,6 +1,6 @@
 {% extends 'admin/base_admin.html.twig' %}
 
-{% block title %}Nouvel Article{% endblock %}
+{% block title %}{{ 'admin.blog.new.title'|trans({}, 'admin') }}{% endblock %}
 
 {% block body %}
 <div class="container py-5">
@@ -8,13 +8,13 @@
         <div class="col-md-8">
             <div class="card card-custom border-danger">
                 <div class="card-header bg-transparent border-bottom border-secondary">
-                    <h3 class="card-title text-danger mb-0">Rédiger un article</h3>
+                    <h3 class="card-title text-danger mb-0">{{ 'admin.blog.new.header'|trans({}, 'admin') }}</h3>
                 </div>
                 <div class="card-body">
                     {{ include('admin/blog_post/_form.html.twig') }}
                 </div>
                 <div class="card-footer bg-transparent border-top border-secondary text-end">
-                    <a href="{{ path('app_blog_post_index') }}" class="btn btn-outline-light">Annuler</a>
+                    <a href="{{ path('app_blog_post_index') }}" class="btn btn-outline-light">{{ 'admin.action.cancel'|trans({}, 'admin') }}</a>
                 </div>
             </div>
         </div>

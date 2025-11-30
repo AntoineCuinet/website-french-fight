@@ -1,0 +1,152 @@
+admin:
+  panel_name: "Admin Panel"
+  nav:
+    back_to_site: "Retour au Site"
+    dashboard: "Dashboard"
+    fights: "Combats"
+    blog: "Blog"
+    logout: "Déconnexion"
+  footer:
+    text: "Administration French Fight"
+  
+  dashboard:
+    title: "Tableau de bord - Admin"
+    header: "Tableau de bord"
+    welcome: "Bienvenue dans l'interface d'administration."
+    fights_card:
+      title: "Combats"
+      text: "Gérer la liste des combats, ajouter des résultats, modifier les dates et les combattants."
+      btn_list: "Voir la liste"
+      btn_add: "Ajouter un combat"
+    blog_card:
+      title: "Blog"
+      text: "Rédiger des articles, partager des actualités et gérer le contenu éditorial."
+      btn_list: "Voir les articles"
+      btn_add: "Rédiger un article"
+
+  fight:
+    index:
+      title: "Gérer les Combats"
+      header: "Combats"
+      btn_new: "Nouveau Combat"
+      table:
+        id: "ID"
+        fighters: "Combattants"
+        date: "Date"
+        type: "Type"
+        result: "Résultat"
+        actions: "Actions"
+        empty: "Aucun combat trouvé"
+    new:
+      title: "Nouveau Combat"
+      header: "Créer un nouveau combat"
+    edit:
+      title: "Modifier Combat"
+      header: "Modifier le combat"
+    show:
+      title: "Détails du Combat"
+      header: "Combat"
+      back_list: "Retour à la liste"
+      btn_edit: "Modifier"
+      table:
+        id: "Id"
+        fighter_a: "Combattant A"
+        fighter_b: "Combattant B"
+        date: "Date"
+        type: "Type"
+        result: "Résultat"
+        location: "Lieu"
+        image_url: "Url Image"
+    form:
+      save: "Enregistrer"
+      update: "Mettre à jour"
+      cancel: "Annuler"
+      current_image: "Image actuelle"
+    delete:
+      btn: "Supprimer"
+      confirm: "Êtes-vous sûr de vouloir supprimer ce combat ?"
+
+  blog:
+    index:
+      title: "Articles de Blog"
+      header: "Blog"
+      btn_new: "Nouvel Article"
+      table:
+        id: "ID"
+        title: "Titre"
+        date: "Date"
+        category: "Catégorie"
+        actions: "Actions"
+        empty: "Aucun article trouvé"
+    new:
+      title: "Nouvel Article"
+      header: "Rédiger un article"
+    edit:
+      title: "Modifier Article"
+      header: "Modifier l'article"
+    show:
+      title: "Détails de l'Article"
+      header: "Article de Blog"
+      back_list: "Retour à la liste"
+      btn_edit: "Modifier"
+      table:
+        id: "Id"
+        title: "Titre"
+        content: "Contenu"
+        published_at: "Publié le"
+        category: "Catégorie"
+        image_url: "Url Image"
+    form:
+      save: "Enregistrer"
+      update: "Mettre à jour"
+      cancel: "Annuler"
+      current_image: "Image actuelle"
+    delete:
+      btn: "Supprimer"
+      confirm: "Êtes-vous sûr de vouloir supprimer cet article ?"
+
+  action:
+    show: "Voir"
+    edit: "Modifier"
+    delete: "Supprimer"
+    save: "Enregistrer"
+    back: "Retour"
+    cancel: "Annuler"
+    update: "Mettre à jour"
+
+  form:
+    fight:
+      fighter_a: "Combattant A"
+      fighter_b: "Combattant B"
+      age_a: "Age (A)"
+      height_a: "Taille (A)"
+      weight_a: "Poids (A)"
+      age_b: "Age (B)"
+      height_b: "Taille (B)"
+      weight_b: "Poids (B)"
+      date: "Date du combat"
+      type: "Type (MMA, Boxe...)"
+      event_name: "Nom de l'événement"
+      weight_class: "Catégorie de poids"
+      rounds: "Nombre de rounds"
+      is_title_fight: "Combat pour le titre ?"
+      status: "Statut (scheduled, etc.)"
+      result: "Résultat"
+      location: "Lieu"
+      broadcaster: "Diffuseur"
+      image_file: "Image du combat (JPG, PNG)"
+      placeholders:
+        height: "1.80m"
+        weight: "70kg"
+    blog:
+      title: "Titre"
+      published_at: "Date de publication"
+      category: "Catégorie (Tips, Training, etc.)"
+      content: "Contenu"
+      image_file: "Image de l'article (JPG, PNG)"
+    constraint:
+      image_mime_type: "Veuillez télécharger une image JPEG ou PNG valide."
+      image_max_size: "La taille de l'image ne doit pas dépasser 5 Mo."
+  
+  flash:
+    upload_error: "Erreur lors de l'upload de l'image : %error%"

@@ -1,19 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Blog - French Fight Club{% endblock %}
+{% block title %}{{ 'app.meta.title'|trans({}, 'app') }} - {{ 'app.nav.blog'|trans({}, 'app') }}{% endblock %}
 
 {% block body %}
     <div class="container py-5 mt-5">
         <div class="text-center mb-5">
-            <h2 class="section-title">Blog & Actualités</h2>
-            <p class="lead text-muted">Astuces, entraînements et analyses.</p>
+            <h2 class="section-title">{{ 'blog.section_title'|trans({}, 'app') }}</h2>
+            <p class="lead text-muted">{{ 'blog.subtitle'|trans({}, 'app') }}</p>
         </div>
 
         <div class="row">
             {% for post in posts %}
                 <div class="col-md-4 mb-4">
                     <a href="{{ path('app_blog_show', {id: post.id}) }}" class="card fight-card h-100 text-decoration-none">
-                    {# <div class="card card-custom h-100"> #}
                         {% if post.imageUrl %}
                             <img src="{{ post.imageUrl }}" class="card-img-top" alt="{{ post.title }}">
                         {% endif %}
@@ -25,14 +24,13 @@
                             </div>
                         </div>
                         <div class="card-footer text-muted">
-                            Publié le {{ post.publishedAt|date('d/m/Y') }}
+                            {{ 'blog.published_on'|trans({}, 'app') }} {{ post.publishedAt|date('d/m/Y') }}
                         </div>
-                    {# </div> #}
                     </a>
                 </div>
             {% else %}
                 <div class="col-12 text-center">
-                    <p class="text-muted">Aucun article publié.</p>
+                    <p class="text-muted">{{ 'blog.empty'|trans({}, 'app') }}</p>
                 </div>
             {% endfor %}
         </div>

@@ -1,50 +1,50 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/base_admin.html.twig' %}
 
-{% block title %}Fight{% endblock %}
+{% block title %}{{ 'admin.fight.show.title'|trans({}, 'admin') }}{% endblock %}
 
 {% block body %}
     <div class="container mt-5">
-        <h1>Fight</h1>
+        <h1>{{ 'admin.fight.show.header'|trans({}, 'admin') }}</h1>
 
         <table class="table table-dark">
             <tbody>
                 <tr>
-                    <th>Id</th>
+                    <th>{{ 'admin.fight.show.table.id'|trans({}, 'admin') }}</th>
                     <td>{{ fight.id }}</td>
                 </tr>
                 <tr>
-                    <th>Fighter A</th>
+                    <th>{{ 'admin.fight.show.table.fighter_a'|trans({}, 'admin') }}</th>
                     <td>{{ fight.fighterA }}</td>
                 </tr>
                 <tr>
-                    <th>Fighter B</th>
+                    <th>{{ 'admin.fight.show.table.fighter_b'|trans({}, 'admin') }}</th>
                     <td>{{ fight.fighterB }}</td>
                 </tr>
                 <tr>
-                    <th>Date</th>
+                    <th>{{ 'admin.fight.show.table.date'|trans({}, 'admin') }}</th>
                     <td>{{ fight.date ? fight.date|date('Y-m-d H:i:s') : '' }}</td>
                 </tr>
                 <tr>
-                    <th>Type</th>
+                    <th>{{ 'admin.fight.show.table.type'|trans({}, 'admin') }}</th>
                     <td>{{ fight.type }}</td>
                 </tr>
                 <tr>
-                    <th>Result</th>
+                    <th>{{ 'admin.fight.show.table.result'|trans({}, 'admin') }}</th>
                     <td>{{ fight.result }}</td>
                 </tr>
                 <tr>
-                    <th>Location</th>
+                    <th>{{ 'admin.fight.show.table.location'|trans({}, 'admin') }}</th>
                     <td>{{ fight.location }}</td>
                 </tr>
                 <tr>
-                    <th>Image Url</th>
+                    <th>{{ 'admin.fight.show.table.image_url'|trans({}, 'admin') }}</th>
                     <td>{{ fight.imageUrl }}</td>
                 </tr>
             </tbody>
         </table>
 
-        <a href="{{ path('app_fight_index') }}" class="btn btn-secondary">Back to list</a>
-        <a href="{{ path('app_fight_edit', {'id': fight.id}) }}" class="btn btn-warning">Edit</a>
+        <a href="{{ path('app_fight_index') }}" class="btn btn-secondary">{{ 'admin.fight.show.back_list'|trans({}, 'admin') }}</a>
+        <a href="{{ path('app_fight_edit', {'id': fight.id}) }}" class="btn btn-warning">{{ 'admin.fight.show.btn_edit'|trans({}, 'admin') }}</a>
 
         {{ include('admin/fight/_delete_form.html.twig') }}
     </div>

@@ -13,10 +13,18 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route('/admin/fight')]
 class FightController extends AbstractController
 {
+    private TranslatorInterface $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator = $translator;
+    }
+
     #[Route('/', name: 'app_fight_index', methods: ['GET'])]
     public function index(FightRepository $fightRepository): Response
     {
@@ -49,7 +57,7 @@ class FightController extends AbstractController
                     );
                 } catch (FileException $e) {
                     // ... handle exception if something happens during file upload
-                    $this->addFlash('error', 'Erreur lors de l\'upload de l\'image: '.$e->getMessage());
+                    $this->addFlash('error', $this->translator->trans('admin.flash.upload_error', ['%error%' => $e->getMessage()], 'admin'));
                     return $this->render('admin/fight/new.html.twig', [
                         'fight' => $fight,
                         'form' => $form,
@@ -109,7 +117,7 @@ class FightController extends AbstractController
                     );
                 } catch (FileException $e) {
                     // ... handle exception
-                    $this->addFlash('error', 'Erreur lors de l\'upload de l\'image: '.$e->getMessage());
+                    $this->addFlash('error', $this->translator->trans('admin.flash.upload_error', ['%error%' => $e->getMessage()], 'admin'));
                     return $this->render('admin/fight/edit.html.twig', [
                         'fight' => $fight,
                         'form' => $form,

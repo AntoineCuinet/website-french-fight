@@ -15,7 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>{% block title %}French Fight{% endblock %}</title>
+        <title>{% block title %}{{ 'app.meta.title'|trans({}, 'app') }}{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>🥊</text></svg>">
         
         {% block stylesheets %}
@@ -30,18 +30,18 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-transparent fixed-top reveal-item" data-reveal-target="item">
             <div class="container">
                 <a class="navbar-brand fw-bold text-uppercase" href="{{ path('app_home') }}">
-                    <span class="text-tricolor">FRENCH</span> FIGHT
+                    <span class="text-tricolor">{{ 'app.brand.first'|trans({}, 'app') }}</span> {{ 'app.brand.second'|trans({}, 'app') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="{{ path('app_home') }}">Accueil</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ path('app_fights') }}">Combats</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ path('app_blog') }}">Blog</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_home') }}">{{ 'app.nav.home'|trans({}, 'app') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_fights') }}">{{ 'app.nav.fights'|trans({}, 'app') }}</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ path('app_blog') }}">{{ 'app.nav.blog'|trans({}, 'app') }}</a></li>
                         {% if is_granted('ROLE_ADMIN') %}
-                            <li class="nav-item"><a class="nav-link text-danger fw-bold" href="{{ path('admin_dashboard') }}">Admin</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger fw-bold" href="{{ path('admin_dashboard') }}">{{ 'app.nav.admin'|trans({}, 'app') }}</a></li>
                         {% endif %}
                     </ul>
                 </div>
@@ -54,7 +54,7 @@
 
         <footer class="footer mt-auto py-4 text-center">
             <div class="container">
-                <span class="text-muted">© {{ 'now'|date('Y') }} French Fight. Tous droits réservés.</span>
+                <span class="text-muted">© {{ 'now'|date('Y') }} {{ 'app.footer.copyright'|trans({}, 'app') }}</span>
             </div>
         </footer>
     </body>

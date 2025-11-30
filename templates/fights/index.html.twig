@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Combats - French Fight Club{% endblock %}
+{% block title %}{{ 'app.meta.title'|trans({}, 'app') }} - {{ 'app.nav.fights'|trans({}, 'app') }}{% endblock %}
 
 {% block body %}
     <div class="container py-5 mt-5">
         <div class="text-center mb-5">
-            <h2 class="section-title">Combats à Venir</h2>
+            <h2 class="section-title">{{ 'fights.upcoming.title'|trans({}, 'app') }}</h2>
         </div>
 
         <div class="row mb-5">
@@ -18,17 +18,17 @@
                                     <img src="{{ fight.imageUrl }}" class="img-fluid rounded-start h-100 object-fit-cover" alt="...">
                                 {% else %}
                                     <div class="h-100 bg-dark d-flex align-items-center justify-content-center">
-                                        <span class="fs-1">📅</span>
+                                        <span class="fs-1">{{ 'fights.upcoming.placeholder_emoji'|trans({}, 'app') }}</span>
                                     </div>
                                 {% endif %}
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title text-primary">{{ fight.fighterA }} vs {{ fight.fighterB }}</h5>
+                                    <h5 class="card-title text-primary">{{ fight.fighterA }} {{ 'fights.card.vs'|trans({}, 'app') }} {{ fight.fighterB }}</h5>
                                     <p class="card-text"><small class="text-muted">{{ fight.date|date('d F Y - H:i') }}</small></p>
                                     <p class="card-text badge bg-info">{{ fight.type }}</p>
                                     <p class="card-text">{{ fight.location }}</p>
-                                    <a href="{{ path('app_fight_show', {id: fight.id}) }}" class="btn-outline-violent btn-sm mt-3 d-inline-block">Voir détails</a>
+                                    <a href="{{ path('app_fight_show', {id: fight.id}) }}" class="btn-outline-violent btn-sm mt-3 d-inline-block">{{ 'fights.card.details'|trans({}, 'app') }}</a>
                                 </div>
                             </div>
                         </div>
@@ -36,13 +36,13 @@
                 </div>
             {% else %}
                  <div class="col-12 text-center">
-                    <p class="text-muted">Aucun combat à venir pour le moment.</p>
+                    <p class="text-muted">{{ 'fights.upcoming.empty'|trans({}, 'app') }}</p>
                 </div>
             {% endfor %}
         </div>
 
         <div class="text-center mb-5">
-            <h2 class="section-title">Combats Passés</h2>
+            <h2 class="section-title">{{ 'fights.past.title'|trans({}, 'app') }}</h2>
         </div>
 
         <div class="row">
@@ -50,16 +50,16 @@
                 <div class="col-md-4 mb-4">
                     <div class="card fight-card h-100">
                          <div class="card-body">
-                            <h5 class="card-title">{{ fight.fighterA }} vs {{ fight.fighterB }}</h5>
+                            <h5 class="card-title">{{ fight.fighterA }} {{ 'fights.card.vs'|trans({}, 'app') }} {{ fight.fighterB }}</h5>
                             <p class="card-text text-muted">{{ fight.date|date('d M Y') }}</p>
-                            <p class="fw-bold">Vainqueur: <span class="text-success">{{ fight.result }}</span></p>
-                            <a href="{{ path('app_fight_show', {id: fight.id}) }}" class="btn-outline-violent btn-sm mt-3 d-inline-block">Voir détails</a>
+                            <p class="fw-bold">{{ 'fights.card.winner'|trans({}, 'app') }} <span class="text-success">{{ fight.result }}</span></p>
+                            <a href="{{ path('app_fight_show', {id: fight.id}) }}" class="btn-outline-violent btn-sm mt-3 d-inline-block">{{ 'fights.card.details'|trans({}, 'app') }}</a>
                         </div>
                     </div>
                 </div>
             {% else %}
                 <div class="col-12 text-center">
-                    <p class="text-muted">Historique vide.</p>
+                    <p class="text-muted">{{ 'fights.past.empty'|trans({}, 'app') }}</p>
                 </div>
             {% endfor %}
         </div>

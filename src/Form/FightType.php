@@ -21,81 +21,81 @@ class FightType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('fighterA', TextType::class, ['label' => 'Combattant A'])
-            ->add('fighterB', TextType::class, ['label' => 'Combattant B'])
+            ->add('fighterA', TextType::class, ['label' => 'admin.form.fight.fighter_a'])
+            ->add('fighterB', TextType::class, ['label' => 'admin.form.fight.fighter_b'])
             
             ->add('fighterAAge', IntegerType::class, [
-                'label' => 'Age (A)', 
+                'label' => 'admin.form.fight.age_a', 
                 'required' => false
             ])
             ->add('fighterAHeight', TextType::class, [
-                'label' => 'Taille (A)', 
+                'label' => 'admin.form.fight.height_a', 
                 'required' => false,
-                'attr' => ['placeholder' => '1.80m']
+                'attr' => ['placeholder' => 'admin.form.fight.placeholders.height']
             ])
             ->add('fighterAWeight', TextType::class, [
-                'label' => 'Poids (A)', 
+                'label' => 'admin.form.fight.weight_a', 
                 'required' => false,
-                'attr' => ['placeholder' => '70kg']
+                'attr' => ['placeholder' => 'admin.form.fight.placeholders.weight']
             ])
 
             ->add('fighterBAge', IntegerType::class, [
-                'label' => 'Age (B)', 
+                'label' => 'admin.form.fight.age_b', 
                 'required' => false
             ])
             ->add('fighterBHeight', TextType::class, [
-                'label' => 'Taille (B)', 
+                'label' => 'admin.form.fight.height_b', 
                 'required' => false,
-                'attr' => ['placeholder' => '1.80m']
+                'attr' => ['placeholder' => 'admin.form.fight.placeholders.height']
             ])
             ->add('fighterBWeight', TextType::class, [
-                'label' => 'Poids (B)', 
+                'label' => 'admin.form.fight.weight_b', 
                 'required' => false,
-                'attr' => ['placeholder' => '70kg']
+                'attr' => ['placeholder' => 'admin.form.fight.placeholders.weight']
             ])
 
             ->add('date', DateTimeType::class, [
                 'widget' => 'single_text',
-                'label' => 'Date du combat'
+                'label' => 'admin.form.fight.date'
             ])
             ->add('type', TextType::class, [
-                'label' => 'Type (MMA, Boxe...)'
+                'label' => 'admin.form.fight.type'
             ])
             ->add('eventName', TextType::class, [
-                'label' => 'Nom de l\'événement',
+                'label' => 'admin.form.fight.event_name',
                 'required' => false
             ])
             ->add('weightClass', TextType::class, [
-                'label' => 'Catégorie de poids',
+                'label' => 'admin.form.fight.weight_class',
                 'required' => false
             ])
             ->add('rounds', IntegerType::class, [
-                'label' => 'Nombre de rounds',
+                'label' => 'admin.form.fight.rounds',
                 'required' => false
             ])
             ->add('isTitleFight', CheckboxType::class, [
-                'label' => 'Combat pour le titre ?',
+                'label' => 'admin.form.fight.is_title_fight',
                 'required' => false
             ])
             ->add('status', TextType::class, [
-                'label' => 'Statut (scheduled, etc.)',
+                'label' => 'admin.form.fight.status',
                 'required' => false
             ])
             ->add('result', TextareaType::class, [
                 'required' => false, 
-                'label' => 'Résultat'
+                'label' => 'admin.form.fight.result'
             ])
             ->add('location', TextType::class, [
                 'required' => false, 
-                'label' => 'Lieu'
+                'label' => 'admin.form.fight.location'
             ])
             ->add('broadcaster', TextType::class, [
                 'required' => false, 
-                'label' => 'Diffuseur'
+                'label' => 'admin.form.fight.broadcaster'
             ])
             // Change imageUrl to FileType
             ->add('imageFile', FileType::class, [
-                'label' => 'Image du combat (JPG, PNG)',
+                'label' => 'admin.form.fight.image_file',
                 'mapped' => false, // Not directly mapped to entity property
                 'required' => false,
                 'constraints' => [
@@ -105,10 +105,10 @@ class FightType extends AbstractType
                             'image/jpeg',
                             'image/png',
                         ],
-                        'mimeTypesMessage' => 'Veuillez télécharger une image JPEG ou PNG valide.',
+                        'mimeTypesMessage' => 'admin.form.constraint.image_mime_type',
                     ]),
                     new Image([
-                        'maxSizeMessage' => 'La taille de l\'image ne doit pas dépasser 5 Mo.',
+                        'maxSizeMessage' => 'admin.form.constraint.image_max_size',
                     ])
                 ],
             ])
@@ -119,6 +119,7 @@ class FightType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Fight::class,
+            'translation_domain' => 'admin',
         ]);
     }
 }

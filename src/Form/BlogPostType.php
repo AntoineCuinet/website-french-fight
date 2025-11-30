@@ -18,22 +18,22 @@ class BlogPostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('title', TextType::class, ['label' => 'Titre'])
+            ->add('title', TextType::class, ['label' => 'admin.form.blog.title'])
             ->add('publishedAt', DateTimeType::class, [
                 'widget' => 'single_text',
-                'label' => 'Date de publication'
+                'label' => 'admin.form.blog.published_at'
             ])
             ->add('category', TextType::class, [
-                'label' => 'Catégorie (Tips, Training, etc.)',
+                'label' => 'admin.form.blog.category',
                 'required' => false
             ])
             ->add('content', TextareaType::class, [
-                'label' => 'Contenu',
+                'label' => 'admin.form.blog.content',
                 'attr' => ['rows' => 10]
             ])
             // Change imageUrl to FileType
             ->add('imageFile', FileType::class, [
-                'label' => 'Image de l\'article (JPG, PNG)',
+                'label' => 'admin.form.blog.image_file',
                 'mapped' => false, // Not directly mapped to entity property
                 'required' => false,
                 'constraints' => [
@@ -43,10 +43,10 @@ class BlogPostType extends AbstractType
                             'image/jpeg',
                             'image/png',
                         ],
-                        'mimeTypesMessage' => 'Veuillez télécharger une image JPEG ou PNG valide.',
+                        'mimeTypesMessage' => 'admin.form.constraint.image_mime_type',
                     ]),
                     new Image([
-                        'maxSizeMessage' => 'La taille de l\'image ne doit pas dépasser 5 Mo.',
+                        'maxSizeMessage' => 'admin.form.constraint.image_max_size',
                     ])
                 ],
             ])
@@ -57,6 +57,7 @@ class BlogPostType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => BlogPost::class,
+            'translation_domain' => 'admin',
         ]);
     }
 }

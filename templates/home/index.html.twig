@@ -1,21 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil - French Fight{% endblock %}
+{% block title %}{{ 'app.meta.title'|trans({}, 'app') }} - {{ 'app.nav.home'|trans({}, 'app') }}{% endblock %}
 
 {% block body %}
     <section class="hero-section">
         <div class="container">
-            <h1 class="reveal-item" data-reveal-target="item"><span class="text-tricolor">French</span> <span class="text-tricolor-h1">Fight</span></h1>
-            <p class="lead reveal-item" data-reveal-target="item">L'élite du combat MMA en France.</p>
+            <h1 class="reveal-item" data-reveal-target="item"><span class="text-tricolor">{{ 'home.hero.title_part1'|trans({}, 'app') }}</span> <span class="text-tricolor-h1">{{ 'home.hero.title_part2'|trans({}, 'app') }}</span></h1>
+            <p class="lead reveal-item" data-reveal-target="item">{{ 'home.hero.subtitle'|trans({}, 'app') }}</p>
             <div class="btn-container reveal-item" data-reveal-target="item">
-                <a href="{{ path('app_fights') }}" class="btn-violent">Voir les Combats</a>
+                <a href="{{ path('app_fights') }}" class="btn-violent">{{ 'home.hero.cta'|trans({}, 'app') }}</a>
             </div>
         </div>
     </section>
 
     <section class="container py-5">
         <div class="text-center reveal-item" data-reveal-target="item">
-            <h2 class="section-title">Derniers Combats</h2>
+            <h2 class="section-title">{{ 'home.latest_fights.title'|trans({}, 'app') }}</h2>
         </div>
 
         <div class="row mt-4">
@@ -23,36 +23,36 @@
                 <div class="col-md-4 mb-4 reveal-item" data-reveal-target="item">
                     <a href="{{ path('app_fight_show', {id: fight.id}) }}" class="card fight-card h-100 text-decoration-none">
                         {% if fight.imageUrl %}
-                            <img src="{{ fight.imageUrl }}" class="card-img-top" alt="{{ fight.fighterA }} vs {{ fight.fighterB }}">
+                            <img src="{{ fight.imageUrl }}" class="card-img-top" alt="{{ fight.fighterA }} {{ 'home.latest_fights.card_alt'|trans({}, 'app') }} {{ fight.fighterB }}">
                         {% else %}
                             <div class="card-img-top bg-secondary d-flex align-items-center justify-content-center">
-                                <span class="fs-1">🥊</span>
+                                <span class="fs-1">{{ 'home.latest_fights.placeholder_emoji'|trans({}, 'app') }}</span>
                             </div>
                         {% endif %}
                         <div class="card-body">
-                            <h5 class="card-title">{{ fight.fighterA }} <span class="text-muted">vs</span> {{ fight.fighterB }}</h5>
+                            <h5 class="card-title">{{ fight.fighterA }} <span class="text-muted">{{ 'home.latest_fights.vs'|trans({}, 'app') }}</span> {{ fight.fighterB }}</h5>
                             <p class="card-text text-muted">{{ fight.date|date('d M Y') }} • {{ fight.type }}</p>
                             {% if fight.result %}
-                                <p class="fw-bold text-success">Résultat: {{ fight.result }}</p>
+                                <p class="fw-bold text-success">{{ 'home.latest_fights.result'|trans({}, 'app') }} {{ fight.result }}</p>
                             {% endif %}
                         </div>
                     </a>
                 </div>
             {% else %}
                 <div class="col-12 text-center reveal-item" data-reveal-target="item">
-                    <p class="text-muted">Aucun combat récent à afficher.</p>
+                    <p class="text-muted">{{ 'home.latest_fights.empty'|trans({}, 'app') }}</p>
                 </div>
             {% endfor %}
         </div>
         
         <div class="text-center mt-4 reveal-item" data-reveal-target="item">
-             <a href="{{ path('app_fights') }}" class="btn-outline-violent">Tous les combats</a>
+             <a href="{{ path('app_fights') }}" class="btn-outline-violent">{{ 'home.latest_fights.view_all'|trans({}, 'app') }}</a>
         </div>
     </section>
 
     <section class="container py-5">
         <div class="text-center reveal-item" data-reveal-target="item">
-            <h2 class="section-title">Actualités</h2>
+            <h2 class="section-title">{{ 'home.news.title'|trans({}, 'app') }}</h2>
         </div>
 
         <div class="row mt-4">
@@ -63,7 +63,7 @@
                             <img src="{{ blog.imageUrl }}" class="card-img-top" alt="{{ blog.title }}">
                         {% else %}
                             <div class="card-img-top bg-dark d-flex align-items-center justify-content-center">
-                                <span class="fs-1">📰</span>
+                                <span class="fs-1">{{ 'home.news.placeholder_emoji'|trans({}, 'app') }}</span>
                             </div>
                         {% endif %}
                         <div class="card-body">
@@ -76,13 +76,13 @@
                 </div>
             {% else %}
                 <div class="col-12 text-center reveal-item" data-reveal-target="item">
-                    <p class="text-muted">Aucune actualité récente.</p>
+                    <p class="text-muted">{{ 'home.news.empty'|trans({}, 'app') }}</p>
                 </div>
             {% endfor %}
         </div>
         
         <div class="text-center mt-4 reveal-item" data-reveal-target="item">
-            <a href="{{ path('app_blog') }}" class="btn-outline-violent">Toutes les news</a>
+            <a href="{{ path('app_blog') }}" class="btn-outline-violent">{{ 'home.news.view_all'|trans({}, 'app') }}</a>
         </div>
     </section>
 {% endblock %}
